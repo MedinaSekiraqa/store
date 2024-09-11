@@ -28,25 +28,7 @@ export const getAllSizes = async (req: Request, res: Response) => {
    }
 };
 
-export const getSizeId = async (req: Request, res: Response) => {
-   console.log("SIZEID HIT");
-   try {
-      const { sizeId } = req.params;
 
-      if (!sizeId) {
-         return res.status(400).json({ message: "Size Id is required" });
-      }
-      const size = await prismadb.size.findUnique({
-         where: {
-            id: sizeId,
-         },
-      });
-      res.status(200).json(size);
-   } catch (error) {
-      console.error("Error getting size with that id:", error);
-      res.status(500).json({ error: "Internal Server Error" });
-   }
-};
 
 export const createSize = async (req: Request, res: Response) => {
    try {
