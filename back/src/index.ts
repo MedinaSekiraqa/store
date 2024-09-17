@@ -32,8 +32,8 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
-   res.send("Hello, From Tech-Store API");
-   console.log("Hello, From Tech-Store API");
+   res.send("Hello, ");
+   console.log("Hello, ");
 });
 app.use("/api/stores", storeRoutes);
 app.use("/api/billboards", billboardRoutes);

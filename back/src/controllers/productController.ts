@@ -345,6 +345,7 @@ export const patchProduct = async (req: Request, res: Response) => {
       }
 
       const existingAttributeIds = existingProduct.attributes.map(
+         //@ts-ignore
          (attr) => attr.id
       );
       const attributesToAdd = attributes.filter(
