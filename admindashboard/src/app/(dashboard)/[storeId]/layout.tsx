@@ -32,7 +32,7 @@ export default async function DashboardLayout({
 
   return (
     <>
-      <Navbar user={session.user} />
+      <Navbar user={session?.user} />
       {children}
     </>
   );

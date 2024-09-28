@@ -26,7 +26,7 @@ export default async function SetupLayout({ children }: { children: React.ReactN
    //   }
 
    if (userRole === "USER") {
-      redirect("/3e5719de-acfb-4c6c-95a9-95472501087c")
+      redirect("/63a9a0c3-e243-4c55-ae00-6d649ae8b313")
    } else if ((userRole === "MANAGER" || userRole === "ADMIN") && store) {
       redirect(`/${store?.id}`)
    }

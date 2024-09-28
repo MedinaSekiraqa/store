@@ -1,26 +1,22 @@
-"use client";
+"use client"
 
-import { useParams, usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { useUser } from "@/hooks/use-user";
+import { useParams, usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
+import Link from "next/link"
+import { useSession } from "next-auth/react"
+import { useUser } from "@/hooks/use-user"
 interface MainNavProps {
    user:
       | {
-           name?: string | null | undefined;
-           email?: string | null | undefined;
-           image?: string | null | undefined;
+           name?: string | null | undefined
+           email?: string | null | undefined
+           image?: string | null | undefined
         }
-      | undefined;
+      | undefined
 }
-export function MainNav({
-   className,
-   user,
-   ...props
-}: React.HTMLAttributes<HTMLElement> & MainNavProps) {
-   const pathname = usePathname();
-   const params = useParams();
+export function MainNav({ className, user, ...props }: React.HTMLAttributes<HTMLElement> & MainNavProps) {
+   const pathname = usePathname()
+   const params = useParams()
 
    const routes = [
       {
@@ -64,34 +60,25 @@ export function MainNav({
          active: pathname === `/${params.storeId}/orders`,
       },
       {
-         href: `/${params.storeId}/reviews`,
-         label: "Reviews",
-         active: pathname === `/${params.storeId}/reviews`,
-      },
-      {
          href: `/${params.storeId}/settings`,
          label: "Settings",
          active: pathname === `/${params.storeId}/settings`,
       },
-   ];
+   ]
    return (
-      <nav
-         className={cn("flex items-center space-x-4 lg:space-x-6", className)}
-      >
+      <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
          {routes.map((route) => (
             <Link
                key={route.href}
                href={route.href}
                className={cn(
                   "text-sm font-medium transition-colors hover:text-primary",
-                  route.active
-                     ? "text-black dark:text-white"
-                     : "text-muted-foreground"
+                  route.active ? "text-black dark:text-white" : "text-muted-foreground"
                )}
             >
                {route.label}
             </Link>
          ))}
       </nav>
-   );
+   )
 }

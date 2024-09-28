@@ -46,6 +46,8 @@ app.use("/api/tags", tagRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/checkout", checkoutRoutes);
 
+
+
 app.listen(port, () => {
    console.log(`Server is running on port http://localhost:${port}`);
 });
